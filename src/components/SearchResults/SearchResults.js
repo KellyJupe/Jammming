@@ -7,7 +7,15 @@ class SearchResults extends Component {
     return (
 <div className="SearchResults">
   <h2>Results</h2>
+    searchResults = {this.state.searchResults};
+</div>,
+<div className="Tracks">
+  <h2>Results</h2>
 
+</div>,
+<div className="TrackList">
+  <h2>Results</h2>
+    tracks={this.props.searchResults}
 </div>
     );
   }
