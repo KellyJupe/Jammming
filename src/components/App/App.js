@@ -23,14 +23,22 @@ constructor(props) {
 
     }
 };
+
+addTrack() {
+  if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+  return;
+  }
+}
+
   render() {
     return (
     <div>
       <h1>Ja<span className="highlight">mmm</span>ing</h1>
     <div className="App-playlist">
-      <h2>playlistName: {this.state.playlistName}</h2>
-      <h2>playlistTracks: this.state.playlistTracks</h2>
-
+    <Playlist>
+      <h2 playlistName= {this.state.playlistName} />
+      <h2 playlistTracks= {this.state.playlistTracks} />
+    </Playlist>
     </div>
     </div>
     );
