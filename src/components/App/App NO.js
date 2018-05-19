@@ -33,21 +33,20 @@ addTrack() {
   }
 }
 
-render() {
-  return (
+  render() {
+    return (
     <div>
       <h1>Ja<span className="highlight">mmm</span>ing</h1>
-      <div className="App">
-        <SearchBar />
-        <div className="App-playlist">
-          <SearchResults searchResults={this.state.searchResults}
-                         onAdd={this.addTrack} />
-          <Playlist playlistTracks={this.state.playlistTracks} />
-        </div>
-      </div>
+    <div className="App-playlist">
+    <Playlist>
+      <h2 playlistName= {this.state.playlistName} />
+      <h2 playlistTracks= {this.state.playlistTracks} />
+    </Playlist>
     </div>
-  );
-}
+    <SearchResults onAdd={this.addTrack}></SearchResults>
+    </div>
+    );
+  }
 }
 
 export default App;
