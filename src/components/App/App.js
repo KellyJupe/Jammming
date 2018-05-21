@@ -4,6 +4,7 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify';
 
 class App extends Component {
 constructor(props) {
@@ -51,11 +52,18 @@ updatePlaylistName(name) {
 }
 
 savePlaylist() {
-  trackURIs: []
+  const trackURIs = this.state.playlistTracks.map(track => track.uri);
+    Spotify.savePlaylist(this.state.playlistName, trackURIs);
+    this.setState({
+        playlistName: 'New Playlist',
+        playlistTracks: []
+      });
 }
 
 search(term) {
-  console.log(term);
+  Spotify.search(term).then(
+    newSearchResults => {this.setState({ searchResults: newSearchResults })}
+  );
 }
 
 render() {
