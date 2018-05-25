@@ -31,9 +31,11 @@ constructor(props) {
     this.search = this.search.bind(this);
 };
 
-addTrack() {
-  if (this.state.playlistTracks.find(savedTrack => savedTrack.id === this.track.id)) {
-  return;
+addTrack(track) {
+  let tracks = this.state.playlistTracks;
+  if (!tracks.includes(track)) {
+    tracks.push(track);
+    this.setState({playlistTracks: tracks})
   }
 }
 

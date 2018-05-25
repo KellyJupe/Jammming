@@ -6,13 +6,16 @@ constructor(props) {
   super(props);
     this.search = this.search.bind(this);
     this.handleTermChange = this.handleTermChange.bind(this);
+    this.state = {
+      term: ''
+    };
 }
 search() {
   this.props.onSearch(this.search.term)
   }
 
 handleTermChange(event) {
-  this.props.term(event.target.value);
+  this.setState({term: event.target.value});
 }
 
   render() {
@@ -21,7 +24,7 @@ handleTermChange(event) {
   <input
     placeholder="Enter A Song, Album, or Artist"
     onChange={this.handleTermChange}/>
-  <a>SEARCH</a>
+  <a onClick={this.search}>SEARCH</a>
 </div>
     );
   }
